@@ -1,0 +1,40 @@
+body { 
+    margin: 0; 
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: flex-start;
+    background-color: #000;
+    height: 100vh;  /* Full viewport height */
+    overflow: hidden;  /* Prevent overflow scrolling */
+}
+
+#container {
+    flex-grow: 1;  /* Take up all available space */
+    height: 100vh;  /* Full viewport height */
+}
+
+canvas { 
+    width: 100%;  /* Ensure canvas takes up full width */
+    height: 100%;  /* Ensure canvas takes up full height */
+    display: block;
+}
+
+#asteroidTable {
+    width: 200px;  /* Fixed width for the table */
+    color: white;
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    margin: 20px;
+    flex-shrink: 0;  /* Prevent table from shrinking */
+}
+
+#asteroidTable th, #asteroidTable td {
+    padding: 10px;
+    border: 1px solid white;
+}
+
+#asteroidTable .color-box {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}

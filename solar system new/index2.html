@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Orrery with Real Asteroids</title>
+    <style>
+        body { 
+            margin: 0; 
+            display: flex; 
+            flex-direction: row; 
+            justify-content: flex-start; 
+            align-items: flex-start;
+            background-color: #000;
+            height: 100vh;  /* Full viewport height */
+            overflow: hidden;  /* Prevent overflow scrolling */
+        }
+
+        #container {
+            flex-grow: 1;  /* Take up all available space */
+            height: 100vh;  /* Full viewport height */
+            z-index: 1;  /* Ensure the container is below the cards */
+            position: relative;  /* Ensure proper layout stacking */
+        }
+
+        canvas { 
+            width: 100%;  /* Ensure canvas takes up full width */
+            height: 100%;  /* Ensure canvas takes up full height */
+            display: block;
+            z-index: 1;  /* Make sure the canvas doesn't overlap the cards */
+            position: absolute;
+        }
+
+        #cardContainer {
+            width: 200px;  /* Fixed width for the cards container */
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            flex-shrink: 0;  /* Prevent cards container from shrinking */
+            z-index: 2;  /* Ensure the cards are above the container */
+            position: relative;  /* Ensure proper layout stacking */
+            background-color: #111;  /* Add a background to make the cards stand out */
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .card {
+            background-color: #333;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+        }
+
+        .color-box {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .card-name {
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+<a href="index.html" style="position: relative; top: 600px; left: 10px; width: 200px; height: 30px; padding: 5px; background-color: #007bff; color: white; text-decoration: none; border-radius: 10px; display: inline-block; text-align: center; line-height: 20px;">HOME</a>
+    <div id="container"></div>
+	
+
+    <div id="cardContainer">
+        <div class="card">
+            <span class="color-box" style="background-color: #FF5733;"></span>
+            <span class="card-name">Apophis</span>
+        </div>
+        <div class="card">
+            <span class="color-box" style="background-color: #C70039;"></span>
+            <span class="card-name">Bennu</span>
+        </div>
+        <div class="card">
+            <span class="color-box" style="background-color: #900C3F;"></span>
+            <span class="card-name">1950 DA</span>
+        </div>
+        <div class="card">
+            <span class="color-box" style="background-color: #581845;"></span>
+            <span class="card-name">Toutatis</span>
+        </div>
+        <div class="card">
+            <span class="color-box" style="background-color: #FFC300;"></span>
+            <span class="card-name">1981 Midas</span>
+        </div>
+        <div class="card">
+            <span class="color-box" style="background-color: #DAF7A6;"></span>
+            <span class="card-name">Orpheus</span>
+        </div>
+    </div>
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls for camera interaction -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script src="orrery.js"></script>
+</body>
+</html>
